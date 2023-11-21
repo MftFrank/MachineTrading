@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<paths>
+  <path>.</path>
+  <path>TradingStrat</path>
+  <path>TradingStrat\CSV</path>
+  <path>TradingStrat\CSV\OtherCSV</path>
+  <path>TradingStrat\Pictures</path>
+  <path>__MACOSX</path>
+  <path>__MACOSX\TradingStrat</path>
+  <path>__MACOSX\TradingStrat\CSV</path>
+  <path>__MACOSX\TradingStrat\CSV\OtherCSV</path>
+  <path>__MACOSX\TradingStrat\Pictures</path>
+</paths>

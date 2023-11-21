@@ -1,0 +1,286 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Multiple Trader Example</title><meta name="generator" content="MATLAB 8.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-08-20"><meta name="DC.source" content="Demo2_MultipleTraders.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Multiple Trader Example</h1><!--introduction--><p>Two traders are in this simulation.  The first is a momemntum trader. The second is a market maker.  The momementum trader's goal is to make profit, the market maker's goal is to provide liquidity with no profit/loss from the trades (the market maker will make money from rebates and other incentives from the exchange).</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#2">Create a Data Feed</a></li><li><a href="#3">Open Up Quote Monitor</a></li><li><a href="#4">Create a Broker</a></li><li><a href="#5">Create Traders</a></li><li><a href="#6">Connect Trader to Broker</a></li><li><a href="#8">Open Up Trade Monitor</a></li><li><a href="#11">Now Run the Simulation</a></li><li><a href="#14">Shut It Down</a></li></ul></div><p>Load the data</p><pre class="codeinput">load <span class="string">MSFTData</span>
+dates = (today+0.39584) + (0:length(msftask)-1)'./184610;
+data = table(repmat({<span class="string">'MSFT'</span>},size(msftask)),msftask,msftbid,<span class="keyword">...</span>
+    randi(100,size(msftask)),randi(100,size(msftask)),<span class="keyword">...</span>
+    cellstr(datestr(dates)),repmat({<span class="string">'quote'</span>},size(msftask)),<span class="keyword">...</span>
+    <span class="string">'VariableNames'</span>,{<span class="string">'Symbol'</span>,<span class="string">'AskPrice'</span>,<span class="string">'BidPrice'</span>,<span class="string">'AskSize'</span>,<span class="string">'BidSize'</span>,<span class="keyword">...</span>
+    <span class="string">'DateTime'</span>,<span class="string">'Type'</span>});
+</pre><h2>Create a Data Feed<a name="2"></a></h2><pre class="codeinput">theFeed = DataFeedReplayService(data)
+theFeed.Data
+clear <span class="string">data</span> <span class="string">dates</span>;
+</pre><pre class="codeoutput">
+theFeed = 
+
+  DataFeedReplayService with properties:
+
+    ReplaySpeed: 2.00
+          Index: 1.00
+     SymbolList: {'MSFT'}
+           Data: [50000x1 struct]
+         Period: 2.00
+          Timer: [1x1 timer]
+
+
+ans = 
+
+50000x1 struct array with fields:
+
+    Symbol
+    AskPrice
+    BidPrice
+    AskSize
+    BidSize
+    DateTime
+    Type
+
+</pre><h2>Open Up Quote Monitor<a name="3"></a></h2><p>Test the Data Feed</p><pre class="codeinput">qm = createNBBODisplay(theFeed.SymbolList);
+qml = addlistener(theFeed,<span class="string">'QuoteNotification'</span>,<span class="keyword">...</span>
+        @(~,e) updateNBBODisplay(qm,e.Data,theFeed.SymbolList));
+
+theFeed.start
+pause(10)
+theFeed.stop
+theFeed.Index = 1; <span class="comment">% rest the data start index</span>
+</pre><img vspace="5" hspace="5" src="Demo2_MultipleTraders_01.png" alt=""> <h2>Create a Broker<a name="4"></a></h2><p>Have Broker listen to quotes</p><pre class="codeinput">b = Broker;
+bl = addlistener(theFeed,<span class="string">'QuoteNotification'</span>,@(~,e) quoteUpdate(b,e.Data));
+theFeed.start
+pause(10)
+theFeed.stop
+theFeed.Index = 1;
+</pre><img vspace="5" hspace="5" src="Demo2_MultipleTraders_02.png" alt=""> <h2>Create Traders<a name="5"></a></h2><pre class="codeinput">addpath(<span class="string">'Models'</span>)
+bmmMSFT = BayesianMarketMaker(28.585,0.13,<span class="string">'MSFT'</span>,<span class="string">'MSFTMarketMaker'</span>);
+lltMSFT = LeadLagTrader(5,63,<span class="string">'MSFT'</span>,<span class="string">'MSFTTrader'</span>);
+</pre><h2>Connect Trader to Broker<a name="6"></a></h2><pre class="codeinput">addBroker(bmmMSFT,b);
+addBroker(lltMSFT,b);
+</pre><p>Have them listen to theFeed</p><pre class="codeinput">mml = addlistener(theFeed,<span class="string">'QuoteNotification'</span>,@(~,e)strategy(bmmMSFT,e.Data));
+tl = addlistener(theFeed,<span class="string">'QuoteNotification'</span>,@(~,e)strategy(lltMSFT,e.Data));
+</pre><h2>Open Up Trade Monitor<a name="8"></a></h2><pre class="codeinput">tm = createTradeDisplay();
+</pre><img vspace="5" hspace="5" src="Demo2_MultipleTraders_03.png" alt=""> <p>Add the updateTradeDiplay to listen to property change in broker trade table.</p><pre class="codeinput">tml = addlistener(b,<span class="string">'TradeBook'</span>,<span class="string">'PostSet'</span>,<span class="keyword">...</span>
+    @(~,e)updateTradeDisplay(tm,e.AffectedObject.TradeBook));
+</pre><pre class="codeinput">setPeriod(theFeed,0.5)
+</pre><h2>Now Run the Simulation<a name="11"></a></h2><pre class="codeinput">start(theFeed)
+</pre><img vspace="5" hspace="5" src="Demo2_MultipleTraders_04.png" alt=""> <p>Stop the display updating to speed up simulation</p><pre class="codeinput">pause(60*2) <span class="comment">% wait for 2 minute</span>
+delete(tml)
+delete(qml)
+setPeriod(theFeed,0.1)
+</pre><img vspace="5" hspace="5" src="Demo2_MultipleTraders_05.png" alt=""> <img vspace="5" hspace="5" src="Demo2_MultipleTraders_06.png" alt=""> <pre class="codeinput"><span class="keyword">while</span> theFeed.Index &lt; length(theFeed.Data)
+    <span class="comment">% wait for all data to stream</span>
+    pause(10)
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">Error while evaluating TimerFcn for timer 'timer-1' 
+
+Index exceeds matrix dimensions.
+
+
+</pre><h2>Shut It Down<a name="14"></a></h2><pre class="codeinput">stop(theFeed)
+</pre><p>View trader's running profit and current positions.  Also look at last 5 trades in the trade log</p><pre class="codeinput">display(lltMSFT)
+display(bmmMSFT)
+b.TradeBook(end-5:end,:)
+</pre><pre class="codeoutput">
+lltMSFT = 
+
+  LeadLagTrader with properties:
+
+      Symbol: 'MSFT'
+    TraderID: 'MSFTTrader'
+      Broker: [1x1 Broker]
+         pos: 2.00
+      profit: -27.53
+           N: 5.00
+           M: 63.00
+
+
+bmmMSFT = 
+
+  BayesianMarketMaker with properties:
+
+      Symbol: 'MSFT'
+    TraderID: 'MSFTMarketMaker'
+      Broker: [1x1 Broker]
+         pos: 0
+      profit: 0.15
+       alpha: 0.90
+       sigma: 0.13
+          P0: 28.59
+
+
+ans = 
+
+    Symbol    FillPrice    FillQty          QuoteTime                 TimeStamp               TraderID         Action
+    ______    _________    _______    ______________________    ______________________    _________________    ______
+
+    'MSFT'    27.99        1.00       '20-Aug-2015 15:55:06'    '20-Aug-2015 14:01:55'    'MSFTMarketMaker'    'sell'
+    'MSFT'    27.99        2.00       '20-Aug-2015 15:55:07'    '20-Aug-2015 14:01:55'    'MSFTTrader'         'sell'
+    'MSFT'    28.00        1.00       '20-Aug-2015 15:55:07'    '20-Aug-2015 14:01:55'    'MSFTMarketMaker'    'buy' 
+    'MSFT'    27.98        1.00       '20-Aug-2015 15:56:09'    '20-Aug-2015 14:02:08'    'MSFTMarketMaker'    'buy' 
+    'MSFT'    27.97        2.00       '20-Aug-2015 15:57:01'    '20-Aug-2015 14:02:19'    'MSFTTrader'         'buy' 
+    'MSFT'    27.96        1.00       '20-Aug-2015 15:59:16'    '20-Aug-2015 14:02:48'    'MSFTMarketMaker'    'sell'
+
+</pre><p class="footer">Copyright 2015 The MathWorks, Inc.<br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Multiple Trader Example
+% Two traders are in this simulation.  The first is a momemntum trader.
+% The second is a market maker.  The momementum trader's goal is to make
+% profit, the market maker's goal is to provide liquidity with no
+% profit/loss from the trades (the market maker will make money from
+% rebates and other incentives from the exchange).
+
+% Copyright 2015 The MathWorks, Inc.
+
+%%
+% Load the data
+load MSFTData
+dates = (today+0.39584) + (0:length(msftask)-1)'./184610;
+data = table(repmat({'MSFT'},size(msftask)),msftask,msftbid,...
+    randi(100,size(msftask)),randi(100,size(msftask)),...
+    cellstr(datestr(dates)),repmat({'quote'},size(msftask)),...
+    'VariableNames',{'Symbol','AskPrice','BidPrice','AskSize','BidSize',...
+    'DateTime','Type'});
+
+%% Create a Data Feed
+%
+theFeed = DataFeedReplayService(data)
+theFeed.Data
+clear data dates;
+
+%% Open Up Quote Monitor
+% Test the Data Feed
+qm = createNBBODisplay(theFeed.SymbolList);
+qml = addlistener(theFeed,'QuoteNotification',...
+        @(~,e) updateNBBODisplay(qm,e.Data,theFeed.SymbolList));
+
+theFeed.start
+pause(10)
+theFeed.stop
+theFeed.Index = 1; % rest the data start index
+
+%% Create a Broker
+% Have Broker listen to quotes
+b = Broker;
+bl = addlistener(theFeed,'QuoteNotification',@(~,e) quoteUpdate(b,e.Data));
+theFeed.start
+pause(10)
+theFeed.stop
+theFeed.Index = 1;
+
+%% Create Traders
+addpath('Models')
+bmmMSFT = BayesianMarketMaker(28.585,0.13,'MSFT','MSFTMarketMaker');
+lltMSFT = LeadLagTrader(5,63,'MSFT','MSFTTrader');
+
+%% Connect Trader to Broker
+addBroker(bmmMSFT,b);
+addBroker(lltMSFT,b);
+
+%%
+% Have them listen to theFeed
+mml = addlistener(theFeed,'QuoteNotification',@(~,e)strategy(bmmMSFT,e.Data));
+tl = addlistener(theFeed,'QuoteNotification',@(~,e)strategy(lltMSFT,e.Data));
+
+%% Open Up Trade Monitor
+tm = createTradeDisplay();
+
+%%
+% Add the updateTradeDiplay to listen to property change in broker trade
+% table.
+tml = addlistener(b,'TradeBook','PostSet',...
+    @(~,e)updateTradeDisplay(tm,e.AffectedObject.TradeBook));
+
+%%
+setPeriod(theFeed,0.5)
+
+%% Now Run the Simulation
+start(theFeed)
+
+%%
+% Stop the display updating to speed up simulation
+pause(60*2) % wait for 2 minute
+delete(tml)
+delete(qml)
+setPeriod(theFeed,0.1)
+
+%%
+while theFeed.Index < length(theFeed.Data)
+    % wait for all data to stream
+    pause(10)
+end
+
+%% Shut It Down
+stop(theFeed)
+
+%%
+% View trader's running profit and current positions.  Also look at last 5
+% trades in the trade log
+display(lltMSFT)
+display(bmmMSFT)
+b.TradeBook(end-5:end,:)
+##### SOURCE END #####
+--></body></html>

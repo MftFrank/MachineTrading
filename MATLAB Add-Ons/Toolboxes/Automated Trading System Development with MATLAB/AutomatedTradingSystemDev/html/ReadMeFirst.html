@@ -1,0 +1,120 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Automated Trading System Development with MATLAB&reg;</title><meta name="generator" content="MATLAB 8.5"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-08-20"><meta name="DC.source" content="ReadMeFirst.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Automated Trading System Development with MATLAB&reg;</h1><!--introduction--><p>This document will help you get set up and running with the examples from the webinar on August 20, 2015.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Watch the Webinar</a></li><li><a href="#2">Required Dependencies</a></li><li><a href="#3">Data</a></li><li><a href="#4">Read the Pblished Examples</a></li><li><a href="#5">Related Code/Webinars</a></li><li><a href="#6">Rotman Trading Simulator</a></li></ul></div><h2>Watch the Webinar<a name="1"></a></h2><p>If you have not done so already, watch the webinar for a walk thru of the code and it's use.</p><p><a href="http://www.mathworks.com/videos/search.html?q=automated+trading">http://www.mathworks.com/videos/search.html?q=automated+trading</a></p><h2>Required Dependencies<a name="2"></a></h2><p>You will need to have MATLAB, Finanical Toolbox, and Parallel Computing Toolbox to run the example MATLAB files.  To run the Simulink&reg; and StateFlow example, you will need those products as well.</p><h2>Data<a name="3"></a></h2><p>The data provided with these examples is from public data sources and was obtained from tickdata.com sample data sets.</p><h2>Read the Pblished Examples<a name="4"></a></h2><p>To get started you can read the examples in the html folder.  These are pulished from the demos and example files.  Reading through them will give you a complete example.  You can also run the examples and walk through them using cell mode (Run and Advance in the Toolstrip).</p><h2>Related Code/Webinars<a name="5"></a></h2><p>These links may be helpful to you in building upon, or a a prerequisit to, the content in this webinar.</p><div><ul><li><a href="http://www.mathworks.com/matlabcentral/fileexchange/43258-commodities-trading-with-matlab">Commodities Trading with MATLAB</a></li><li><a href="http://www.mathworks.com/matlabcentral/fileexchange/37932-automated-trading-with-matlab-2012">Automated Trading with MATLAB - 2012</a></li><li><a href="http://www.mathworks.com/matlabcentral/fileexchange/29489-algorithmic-trading-with-matlab-2010">Algorithmic Trading with MATLAB - 2010</a></li><li><a href="http://www.mathworks.com/matlabcentral/fileexchange/24320-algorithmic-trading-with-matlab-2009-update">Algorithmic Trading with MATLAB - 2009</a></li><li><a href="http://www.mathworks.com/matlabcentral/fileexchange/31060-cointegration-and-pairs-trading-with-econometrics-toolbox">Cointegration and Pairs Trading with MATLAB</a></li><li><a href="http://www.mathworks.com/matlabcentral/fileexchange/42093-realtime-trading-with-matlab-presentation-files">Real-time Trading in MATLAB</a></li><li><a href="http://www.mathworks.com/matlabcentral/fileexchange/49455-rotman-trader-toolbox">Rotman Trader Toolbox</a></li><li><a href="http://www.mathworks.com/matlabcentral/fileexchange/43869-algorithmic-trading-with-bloomberg-emsx-and-matlab">Algorithmic Trading with Bloomberg EMSX and MATLAB</a></li><li><a href="http://www.mathworks.com/matlabcentral/fileexchange/28056-energy-trading---risk-management-with-matlab-webinar-case-study">Energy Trading and Risk Managment</a></li></ul></div><h2>Rotman Trading Simulator<a name="6"></a></h2><p>If you want to play with a realistic system, you can hook up the examples here with the Rotman Trader Toolbox (on the MATLAB Central file exchange) to play with simulated data.  This is a simulator created by the University of Toronto.</p><p class="footer">Copyright 2015 The MathWorks, Inc.<br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Automated Trading System Development with MATLAB(R)
+% This document will help you get set up and running with the
+% examples from the webinar on August 20, 2015.
+
+% Copyright 2015 The MathWorks, Inc.
+
+%% Watch the Webinar
+% If you have not done so already, watch the webinar for a walk thru of the
+% code and it's use.
+%
+% <http://www.mathworks.com/videos/search.html?q=automated+trading>
+
+%% Required Dependencies
+% You will need to have MATLAB, Finanical Toolbox, and Parallel Computing
+% Toolbox to run the example MATLAB files.  To run the Simulink(R) and
+% StateFlow example, you will need those products as well.
+%
+
+%% Data
+% The data provided with these examples is from public data sources and was
+% obtained from tickdata.com sample data sets.
+
+%% Read the Pblished Examples
+% To get started you can read the examples in the html folder.  These are
+% pulished from the demos and example files.  Reading through them will
+% give you a complete example.  You can also run the examples and walk
+% through them using cell mode (Run and Advance in the Toolstrip).
+
+%% Related Code/Webinars
+% These links may be helpful to you in building upon, or a a prerequisit
+% to, the content in this webinar.
+% 
+% * <http://www.mathworks.com/matlabcentral/fileexchange/43258-commodities-trading-with-matlab Commodities Trading with MATLAB>
+% * <http://www.mathworks.com/matlabcentral/fileexchange/37932-automated-trading-with-matlab-2012 Automated Trading with MATLAB - 2012>
+% * <http://www.mathworks.com/matlabcentral/fileexchange/29489-algorithmic-trading-with-matlab-2010 Algorithmic Trading with MATLAB - 2010>
+% * <http://www.mathworks.com/matlabcentral/fileexchange/24320-algorithmic-trading-with-matlab-2009-update Algorithmic Trading with MATLAB - 2009>
+% * <http://www.mathworks.com/matlabcentral/fileexchange/31060-cointegration-and-pairs-trading-with-econometrics-toolbox Cointegration and Pairs Trading with MATLAB>
+% * <http://www.mathworks.com/matlabcentral/fileexchange/42093-realtime-trading-with-matlab-presentation-files Real-time Trading in MATLAB>
+% * <http://www.mathworks.com/matlabcentral/fileexchange/49455-rotman-trader-toolbox Rotman Trader Toolbox>
+% * <http://www.mathworks.com/matlabcentral/fileexchange/43869-algorithmic-trading-with-bloomberg-emsx-and-matlab Algorithmic Trading with Bloomberg EMSX and MATLAB>
+% * <http://www.mathworks.com/matlabcentral/fileexchange/28056-energy-tradingREPLACE_WITH_DASH_DASH-risk-management-with-matlab-webinar-case-study Energy Trading and Risk Managment>
+
+%% Rotman Trading Simulator
+% If you want to play with a realistic system, you can hook up the examples
+% here with the Rotman Trader Toolbox (on the MATLAB Central file exchange)
+% to play with simulated data.  This is a simulator created by the
+% University of Toronto.
+
+##### SOURCE END #####
+--></body></html>

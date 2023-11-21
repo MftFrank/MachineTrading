@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addonCore>
+  <label>Forecasting Bitcoin Volatility using Regression Learner App</label>
+  <version>1.0.1</version>
+  <type>zip</type>
+  <identifier>0ee85750-f3c1-4190-9ef0-5bb25f42e709</identifier>
+  <createdBy name="MathWorks Quant Team"/>
+  <image>resources/screenshot.png</image>
+</addonCore>

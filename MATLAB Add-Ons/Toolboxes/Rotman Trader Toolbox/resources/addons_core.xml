@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addonCore>
+  <label>Rotman Trader Toolbox</label>
+  <version>1.2</version>
+  <type>Toolbox</type>
+  <identifier>a1314caf-ea10-47c1-a0a6-560484d87447</identifier>
+  <summary>Rotman Trader Toolbox provides functionality for connecting MATLAB(R) to Rotman Interactive Trader</summary>
+  <description>Rotman Trader Toolbox allows you to connect to Rotman Interactive Trader from MATLAB(R).  From within MATLAB, you can retrieve information in real-time as well as submit trading orders.  You can build an interactive or fully automated trading system in MATLAB for use with Rotman Interactive Trader.
+
+Other Requirements
+
+Note that you will need to download and install Rotman Interactive Trader to use this functionality.</description>
+  <createdBy name="Stuart Kozola"/>
+  <image>resources/screenshot.png</image>
+</addonCore>

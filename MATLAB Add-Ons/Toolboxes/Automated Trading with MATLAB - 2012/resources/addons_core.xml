@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addonCore>
+  <label>Automated Trading with MATLAB - 2012</label>
+  <version>1.2.0.1</version>
+  <type>Toolbox</type>
+  <identifier>e59027e5-4a80-11e4-9553-005056977bd0</identifier>
+  <summary>Files from the Automated Trading webinar showing X_Trader and QuickFIX/J integration.</summary>
+  <description>Files used in the webinar - Automated Trading with MATLAB broadcast on August 21, 2012. This webinar can be viewed at www.mathworks.com/videos/automated-trading-with-matlab-81911.html
+Specific topics include:
+* Data gathering options, including daily historic, intraday, and real-time data
+* Model building and prototyping in MATLAB
+* Backtesting and calibrating a model
+* Interacting with existing libraries and software for trade execution (X_Trader, QuickFIX/J, messaging queues)
+
+It is recommended that you watch the webinar to see the "live" system running.
+
+Other Requirements
+
+None.</description>
+  <createdBy name="Stuart Kozola"/>
+  <image>resources/screenshot.png</image>
+</addonCore>

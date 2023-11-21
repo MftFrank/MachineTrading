@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addOn>
+  <identifier>5a9e5f01-906c-4152-98c6-87484eed86bf</identifier>
+  <displayType>Collection</displayType>
+  <translatedDisplayType>
+    <en_US>Collection</en_US>
+    <es_ES>Collection</es_ES>
+    <es_MX>Collection</es_MX>
+    <ja_JP>コレクション</ja_JP>
+    <ko_KR>컬렉션</ko_KR>
+    <zh_CN>集合</zh_CN>
+  </translatedDisplayType>
+  <name>Trading Algorithms Using Signal Processing in MATLAB* 2nd Ed</name>
+  <author>Steve Rogers</author>
+  <version>1.0.7</version>
+  <downloadUrl>https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/5a9e5f01-906c-4152-98c6-87484eed86bf/4bb09455-a236-4efc-88c8-5217534f4b60/packages/zip?src=addons_ml_desktop_install&amp;profile_id=31452145&amp;license=41117457&amp;release_family=R2023b</downloadUrl>
+  <licenseUrl>https://addons.mathworks.com/registry/v1/5a9e5f01-906c-4152-98c6-87484eed86bf/1.0.7.0/-/license</licenseUrl>
+  <previewImageUrl>https://www.mathworks.com/responsive_image/160/120/0/0/0/cache/matlabcentral/images/default_screenshot.jpg</previewImageUrl>
+  <releaseNotesUrl>https://www.mathworks.com/add-ons/5a9e5f01-906c-4152-98c6-87484eed86bf/4bb09455-a236-4efc-88c8-5217534f4b60/releaseNotes</releaseNotesUrl>
+  <installationFolder>Collections</installationFolder>
+</addOn>

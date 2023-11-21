@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addonCore>
+  <label>Automated Trading System Development with MATLAB</label>
+  <version>1.0</version>
+  <type>Toolbox</type>
+  <identifier>238acf2e-8de2-44cb-9b7d-c6ffea3a6d79</identifier>
+  <summary>How to Build an Event-based Automated Trading System in MATLAB</summary>
+  <description>Files used in the webinar - Automated Trading System Development with MATLAB broadcast on August 20, 2015. This webinar can be viewed at http://www.mathworks.com/videos/search.html?q=automated+trading
+Specific topics include:
+
+* Data gathering options, including daily historic, intraday, and real-time data 
+* Model building and prototyping in MATLAB 
+* Back testing, walk forward testing, and calibrating a model 
+* Event handling in MATLAB (Streaming data)
+
+It is recommended that you watch the webinar to see the "live" system running.
+
+Other Requirements
+
+None.</description>
+  <createdBy name="Stuart Kozola"/>
+  <image>resources/screenshot.png</image>
+</addonCore>

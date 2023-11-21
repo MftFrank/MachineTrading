@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addOn>
+  <identifier>ede55cd9-1ca9-4813-9be1-b4ec11777dc7</identifier>
+  <displayType>Collection</displayType>
+  <translatedDisplayType>
+    <en_US>Collection</en_US>
+    <es_ES>Collection</es_ES>
+    <es_MX>Collection</es_MX>
+    <ja_JP>コレクション</ja_JP>
+    <ko_KR>컬렉션</ko_KR>
+    <zh_CN>集合</zh_CN>
+  </translatedDisplayType>
+  <name>Web3.m</name>
+  <author>Emil Skoglund</author>
+  <version>1.0.0</version>
+  <downloadUrl>https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/ede55cd9-1ca9-4813-9be1-b4ec11777dc7/386ebb04-66a1-461b-bd73-46b96b309b75/packages/zip?src=addons_ml_desktop_install&amp;profile_id=31452145&amp;license=41117457&amp;release_family=R2023b</downloadUrl>
+  <licenseUrl>https://addons.mathworks.com/registry/v1/ede55cd9-1ca9-4813-9be1-b4ec11777dc7/1.0.0.0/-/license</licenseUrl>
+  <previewImageUrl>https://www.mathworks.com/responsive_image/160/120/0/0/0/cache/matlabcentral/mlc-downloads/downloads/ede55cd9-1ca9-4813-9be1-b4ec11777dc7/386ebb04-66a1-461b-bd73-46b96b309b75/images/1672770789.jpg</previewImageUrl>
+  <releaseNotesUrl>https://www.mathworks.com/add-ons/ede55cd9-1ca9-4813-9be1-b4ec11777dc7/386ebb04-66a1-461b-bd73-46b96b309b75/releaseNotes</releaseNotesUrl>
+  <installationFolder>Collections</installationFolder>
+</addOn>

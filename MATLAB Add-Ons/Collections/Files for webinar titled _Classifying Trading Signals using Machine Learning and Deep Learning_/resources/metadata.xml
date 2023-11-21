@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addOn>
+  <identifier>eb3e60d2-1ab3-420f-a353-9746de4798b4</identifier>
+  <displayType>Collection</displayType>
+  <translatedDisplayType>
+    <en_US>Collection</en_US>
+    <es_ES>Collection</es_ES>
+    <es_MX>Collection</es_MX>
+    <ja_JP>コレクション</ja_JP>
+    <ko_KR>컬렉션</ko_KR>
+    <zh_CN>集合</zh_CN>
+  </translatedDisplayType>
+  <name>Files for webinar titled "Classifying Trading Signals using Machine Learning and Deep Learning"</name>
+  <author>MathWorks Quant Team</author>
+  <version>1.1.0.0</version>
+  <downloadUrl>https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/66045/versions/2/download/zip?src=addons_ml_desktop_install&amp;profile_id=31452145&amp;license=41117457&amp;release_family=R2023b</downloadUrl>
+  <licenseUrl>https://addons.mathworks.com/registry/v1/eb3e60d2-1ab3-420f-a353-9746de4798b4/1.1.0.0/-/license</licenseUrl>
+  <previewImageUrl>https://www.mathworks.com/responsive_image/160/120/0/0/0/cache/matlabcentral/mlc-downloads/downloads/submissions/66045/versions/2/screenshot.png</previewImageUrl>
+  <releaseNotesUrl>https://www.mathworks.com/add-ons/eb3e60d2-1ab3-420f-a353-9746de4798b4/c19b86bb-3791-1cff-b8b9-cf449ac8718c/releaseNotes</releaseNotesUrl>
+  <installationFolder>Collections</installationFolder>
+</addOn>

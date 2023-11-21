@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addOn>
+  <identifier>97b1c5bf-0eea-4bf8-9f50-83b88b66cee3</identifier>
+  <displayType>Example</displayType>
+  <translatedDisplayType>
+    <en_US>Example</en_US>
+    <es_ES>Example</es_ES>
+    <es_MX>Example</es_MX>
+    <ja_JP>例</ja_JP>
+    <ko_KR>예제</ko_KR>
+    <zh_CN>示例</zh_CN>
+  </translatedDisplayType>
+  <name>Backtesting Trading Strategies in Just 8 Lines of Code</name>
+  <author>MathWorks Quant Team</author>
+  <version>1.0.0.0</version>
+  <downloadUrl>https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/63333/versions/2/download/zip?src=addons_ml_desktop_install&amp;profile_id=31452145&amp;license=41117457&amp;release_family=R2023b</downloadUrl>
+  <licenseUrl>https://addons.mathworks.com/registry/v1/97b1c5bf-0eea-4bf8-9f50-83b88b66cee3/1.0.0.0/-/license</licenseUrl>
+  <previewImageUrl>https://www.mathworks.com/responsive_image/160/120/0/0/0/cache/matlabcentral/mlc-downloads/downloads/submissions/63333/versions/2/screenshot.PNG</previewImageUrl>
+  <releaseNotesUrl>https://www.mathworks.com/add-ons/97b1c5bf-0eea-4bf8-9f50-83b88b66cee3/cb251e6f-29ba-eb1e-defc-d7353bf67aa1/releaseNotes</releaseNotesUrl>
+  <installationFolder/>
+</addOn>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<paths>
+  <path>AutomatedTradingSystemDev\Models</path>
+  <path>AutomatedTradingSystemDev\MarketMaker</path>
+  <path>AutomatedTradingSystemDev\Data</path>
+  <path>AutomatedTradingSystemDev\Charts</path>
+  <path>AutomatedTradingSystemDev\Agents</path>
+  <path>AutomatedTradingSystemDev</path>
+  <path>.</path>
+</paths>
