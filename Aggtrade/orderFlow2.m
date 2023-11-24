@@ -7,10 +7,10 @@ exitThreshold=0;
 lookback=60; % 1 min
 %% 1 sec trade ticks
 
-T=readtable('2014-12.csv'); % time is "yyyy-mm-dd HH:MM:SS.FFFFFF" Price is BTCUSD
-% T=readtable('trades_bitstamp/2015-01.csv'); % time is "yyyy-mm-dd HH:MM:SS.FFFFFF" Price is BTCUSD
+T=readtable('D:\MftFrank\tmp\MKRUSDT_AggTrades.csv'); % time is "yyyy-mm-dd HH:MM:SS.FFFFFF" Price is BTCUSD
 
-timestr=char(regexprep(table2cell(T(:, 1)), '(:\d\d)$', '$1.000000')); % Some times are "yyyy-mm-dd HH:MM:SS"
+T1=table2cell(T(:, 1));
+timestr=char(regexprep(T1, '(:\d\d)$', '$1.000000')); % Some times are "yyyy-mm-dd HH:MM:SS"
 dotIdx=regexp(timestr(1, :), '\.');
 timestr1=timestr(:, 1:(dotIdx-1));
 timestr2=num2str(roundoff(str2double(cellstr(timestr(:, dotIdx:end))), 3), '%0.3f'); % Reduce to 0.FFF
@@ -25,7 +25,7 @@ tradeSize=table2array(T(:, 3));
 tradePrice=table2array(T(:, 4));
 
 %% order flow
-buy=side==1;zzz
+buy=side==1;
 sell=side==-1;
 
 ordflow=zeros(size(tradePrice));
