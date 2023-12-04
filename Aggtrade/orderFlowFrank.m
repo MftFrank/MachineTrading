@@ -2,12 +2,12 @@
 % Sum order flow over 1 minute.
 clear;
 
-entryThreshold=20;
+entryThreshold=50;
 exitThreshold=0;
 lookback=60; % 1 min
 %% 1 sec trade ticks
 
-dn_temp=readtable('/Users/wangfuyu/Works/MKRUSDT_AggTrades.csv'); 
+dn_temp=readtable('/Users/wangfuyu/Works/BacktestData/MKRUSDT_AggTrades.csv'); 
 
 dn=dn_temp.T;
 tradeSize = dn_temp.q;
